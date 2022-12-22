@@ -23,13 +23,13 @@ class Moderation(Cog):
             reason = "Wasn't mentioned"
 
         if member == ctx.author:
-            embed = Embed(title=None, description="I can't kick you.", color=0xb30101)
+            embed = Embed(description="I can't kick you.", color=0xb30101)
             await ctx.send(embed=embed)
         elif member == ctx.bot.user:
-            embed = Embed(title=None, description="You can't kick me. I am the one who **knocks!**" , color=0xb30101)
+            embed = Embed(description="You can't kick me. I am the one who **knocks!**" , color=0xb30101)
             await ctx.send(embed=embed)
         else:
-            embed = Embed(title=None, description=f"**Reason:** {reason}" ,color=0x5e7bdd)
+            embed = Embed(description=f"**Reason:** {reason}" ,color=0x5e7bdd)
             embed.set_author(icon_url=member.avatar, name=f"{member.name}" + '#' + f"{member.discriminator} has been kicked.")
 
             await member.kick(reason=reason)
@@ -44,13 +44,13 @@ class Moderation(Cog):
             reason = "Wasn't mentioned."
 
         if member == ctx.author:
-            embed = Embed(title=None, description="I can't ban you.", color=0xb30101)
+            embed = Embed(description="I can't ban you.", color=0xb30101)
             await ctx.send(embed=embed)
         elif member == ctx.bot.user:
-            embed = Embed(title=None, description="You can't ban me. I am the one who **knocks!**" , color=0xb30101)
+            embed = Embed(description="You can't ban me. I am the one who **knocks!**" , color=0xb30101)
             await ctx.send(embed=embed)
         else:
-            embed = Embed(title=None, description=f"**Reason:** {reason}" ,color=0x5e7bdd)
+            embed = Embed(description=f"**Reason:** {reason}" ,color=0x5e7bdd)
             embed.set_author(icon_url=member.avatar, name=f"{member.name}" + '#' + f"{member.discriminator} has been banned.")
 
             await member.ban(reason=reason)
@@ -63,7 +63,7 @@ class Moderation(Cog):
         
         guild: discord.Guild = ctx.guild
 
-        #embed = Embed(title=None, description='Hello', color=0x5e7bdd)
+        #embed = Embed(description='Hello', color=0x5e7bdd)
         #embed.set_author(icon_url=member.avatar, name=f"{member.name}" + '#' + f"{member.discriminator} has been unbanned.")
 
         #await ctx.send(embed=embed)
@@ -144,10 +144,10 @@ class Moderation(Cog):
     async def addrole(self, ctx, member: discord.Member, *, role: discord.Role):
 
         if role in member.roles:
-            em = Embed(title=None, description=f"{member.mention} already has the role {role.mention}" ,color=0xb30101)
+            em = Embed(description=f"{member.mention} already has the role {role.mention}" ,color=0xb30101)
             await ctx.send(embed=em)
         else:
-            em = Embed(title=None, description=f"Added {role.mention} role to {member.mention}" ,color=0x1983ca)
+            em = Embed(description=f"Added {role.mention} role to {member.mention}" ,color=0x1983ca)
             await member.add_roles(role)
             await ctx.send(embed=em)
 
@@ -157,10 +157,10 @@ class Moderation(Cog):
 
 
         if role not in member.roles:
-            em = Embed(title=None, description=f"{member.mention} doesn't have the role {role.mention}" ,color=0xb30101)
+            em = Embed(description=f"{member.mention} doesn't have the role {role.mention}" ,color=0xb30101)
             await ctx.send(embed=em)
         else:
-            em = Embed(title=None, description=f"Removed {role.mention} role from {member.mention}" ,color=0x1983ca)
+            em = Embed(description=f"Removed {role.mention} role from {member.mention}" ,color=0x1983ca)
             await ctx.send(embed=em)
             await member.remove_roles(role)
 
