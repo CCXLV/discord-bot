@@ -9,8 +9,7 @@ log = logging.getLogger(__name__)
 extensions = (
     'cogs.error_handler',
     'cogs.additional',
-    'cogs.moderation.moderation',
-    #'cogs.moderation.modlog',
+    'cogs.moderation',
     'cogs.youtube_search',
     'cogs.information',
 )
