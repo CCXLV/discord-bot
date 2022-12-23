@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord import Embed
 
 from utils.bot import Brains
 
@@ -12,11 +13,22 @@ class ErrorHandler(commands.Cog):
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
-        embed_mp = discord.Embed(description="You don't have permissions to do that.")
-        embed_mra = discord.Embed(description="An argument is missing.")
-        embed_cnf = discord.Embed(description="This command was not found.")
-        embed_bmp = discord.Embed(description="I don't have required permissions to do that.")
-
+        embed_mp = Embed(color=0xb30101)
+        embed_mp.description = (
+            'You don\'t have permissions to do that.'
+        )
+        embed_mra = Embed(color=0xb30101)
+        embed_mra.description = (
+            'An argument is missing.'
+        )
+        embed_cnf = Embed(color=0xb30101)
+        embed_cnf.description = (
+            'This command was not found.'
+        )
+        embed_bmp = Embed(color=0xb30101)
+        embed_bmp.description = (
+            'I don\'t have required permissions to do that.'
+        )
         if isinstance(error, commands.MissingPermissions):
             await ctx.send(embed=embed_mp)
         elif isinstance(error, commands.MissingRequiredArgument):
