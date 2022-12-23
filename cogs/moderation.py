@@ -20,18 +20,18 @@ class Moderation(Cog):
     async def kick(self, ctx, member: discord.Member, *, reason=None):
 
         if reason == None:
-            reason = 'Wasn't mentioned'
+            reason = 'Wasn\'t mentioned'
 
         if member == ctx.author:
             embed = Embed(color=0xb30101)
             embed.description = (
-                'I can't kick you.'     
+                'I can\'t kick you.'     
             )
             await ctx.send(embed=embed)
         elif member == ctx.bot.user:
             embed = Embed(color=0xb30101)
             embed.description = (
-                'You can't kick me. I am the one who **knocks!**'
+                'You can\'t kick me. I am the one who **knocks!**'
             )
             await ctx.send(embed=embed)
         else:
@@ -50,18 +50,18 @@ class Moderation(Cog):
     async def ban(self, ctx, member: discord.Member, *, reason=None):
 
         if reason == None:
-            reason = 'Wasn't mentioned.'
+            reason = 'Wasn\'t mentioned.'
 
         if member == ctx.author:
             embed = Embed(color=0xb30101)
             embed.description = (
-                'I can't ban you.'
+                'I can\'t ban you.'
             )
             await ctx.send(embed=embed)
         elif member == ctx.bot.user:
             embed = Embed(color=0xb30101)
             embed.description = (
-                'You can't ban me. I am the one who **knocks!**'
+                'You can\'t ban me. I am the one who **knocks!**'
             )
             await ctx.send(embed=embed)
         else:
