@@ -182,7 +182,7 @@ class Moderation(Cog):
         if role not in member.roles:
             embed = Embed(color=0xb30101)
             embed.description = (
-                f'{member.mention} doesn't have the role {role.mention}'
+                f'{member.mention} doesn\'t have the role {role.mention}'
             )
             await ctx.send(embed=embed)
         else:
