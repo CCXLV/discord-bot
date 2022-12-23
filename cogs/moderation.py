@@ -155,12 +155,17 @@ class Moderation(Cog):
     @commands.has_guild_permissions(manage_roles=True)
     async def removerole(self, ctx, member: discord.Member, *, role: discord.Role):
 
-
         if role not in member.roles:
-            embed = Embed(description=f"{member.mention} doesn't have the role {role.mention}" ,color=0xb30101)
+            embed = Embed(color=0xb30101)
+            embed.description = (
+                f'{member.mention} doesn't have the role {role.mention}'
+            )
             await ctx.send(embed=embed)
         else:
-            embed = Embed(description=f"Removed {role.mention} role from {member.mention}" ,color=0x1983ca)
+            embed = Embed(color=0x1983ca)
+            embed.description = (
+                f'Removed {role.mention} role from {member.mention}'
+            )
             await member.remove_roles(role)
             await ctx.send(embed=embed)
 
