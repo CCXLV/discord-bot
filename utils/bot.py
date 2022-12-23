@@ -16,7 +16,6 @@ extensions = (
 
 class Brains(commands.Bot):
     session = aiohttp.ClientSession()
-
     def __init__(self):
         intents = discord.Intents.all()
         super().__init__(
@@ -42,3 +41,4 @@ class Brains(commands.Bot):
             return await message.author.send("Bot can't be used in DMs(for now).")
         
         await self.process_commands(message)
+
