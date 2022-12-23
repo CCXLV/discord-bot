@@ -49,7 +49,7 @@ class YoutubeSearch(commands.Cog):
         for brandingSettings in response['items']:
             full = brandingSettings['brandingSettings']
             channel = full['channel']
-            description_ = channel['description']
+            channel_description = channel['description']
             username = channel['title']
 
         for i in response['items']:
@@ -57,7 +57,7 @@ class YoutubeSearch(commands.Cog):
 
         embed = Embed(title=f'{username}', color=0xFF0000)
         
-        embed.description = str(description_)
+        embed.description = str(channel_description)
         embed.add_field(name='Custom url', value=f"{snippet['customUrl']}", inline=False)
         embed.add_field(name='Created', value=f'<t:{round_timestamp}:R>', inline=False)
         embed.add_field(name='Videos', value=f"{int(raw['videoCount']):,}", inline=False)
