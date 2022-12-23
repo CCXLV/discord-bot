@@ -144,10 +144,16 @@ class Moderation(Cog):
     async def addrole(self, ctx, member: discord.Member, *, role: discord.Role):
 
         if role in member.roles:
-            embed = Embed(description=f"{member.mention} already has the role {role.mention}" ,color=0xb30101)
+            embed = Embed(color=0xb30101)
+            embed.description = (
+                f'{member.mention} already has the role {role.mention}'
+            )
             await ctx.send(embed=embed)
         else:
-            embed = Embed(description=f"Added {role.mention} role to {member.mention}" ,color=0x1983ca)
+            embed = Embed(color=0x1983ca)
+            embed.description = (
+                f'Added {role.mention} role to {member.mention}'
+            )
             await member.add_roles(role)
             await ctx.send(embed=embed)
 
