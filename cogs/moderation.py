@@ -69,7 +69,7 @@ class Moderation(Cog):
         #await ctx.send(embed=embed)
         await guild.unban(member)
         
-        @commands.command(aliases=['delay', 'setdelay'])
+    @commands.command(aliases=['delay', 'setdelay'])
     @commands.has_guild_permissions(manage_channels=True)
     async def slowmode(self, ctx, channel: Optional[discord.TextChannel], seconds: int):
         if channel is None:
@@ -144,12 +144,12 @@ class Moderation(Cog):
     async def addrole(self, ctx, member: discord.Member, *, role: discord.Role):
 
         if role in member.roles:
-            em = Embed(description=f"{member.mention} already has the role {role.mention}" ,color=0xb30101)
-            await ctx.send(embed=em)
+            embed = Embed(description=f"{member.mention} already has the role {role.mention}" ,color=0xb30101)
+            await ctx.send(embed=embed)
         else:
-            em = Embed(description=f"Added {role.mention} role to {member.mention}" ,color=0x1983ca)
+            embed = Embed(description=f"Added {role.mention} role to {member.mention}" ,color=0x1983ca)
             await member.add_roles(role)
-            await ctx.send(embed=em)
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.has_guild_permissions(manage_roles=True)
@@ -157,12 +157,12 @@ class Moderation(Cog):
 
 
         if role not in member.roles:
-            em = Embed(description=f"{member.mention} doesn't have the role {role.mention}" ,color=0xb30101)
-            await ctx.send(embed=em)
+            embed = Embed(description=f"{member.mention} doesn't have the role {role.mention}" ,color=0xb30101)
+            await ctx.send(embed=embed)
         else:
-            em = Embed(description=f"Removed {role.mention} role from {member.mention}" ,color=0x1983ca)
-            await ctx.send(embed=em)
+            embed = Embed(description=f"Removed {role.mention} role from {member.mention}" ,color=0x1983ca)
             await member.remove_roles(role)
+            await ctx.send(embed=embed)
 
 
     @commands.command(aliases=['chadd'])
