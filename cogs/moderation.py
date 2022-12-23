@@ -20,17 +20,26 @@ class Moderation(Cog):
     async def kick(self, ctx, member: discord.Member, *, reason=None):
 
         if reason == None:
-            reason = "Wasn't mentioned"
+            reason = 'Wasn't mentioned'
 
         if member == ctx.author:
-            embed = Embed(description="I can't kick you.", color=0xb30101)
+            embed = Embed(color=0xb30101)
+            embed.description = (
+                'I can't kick you.'     
+            )
             await ctx.send(embed=embed)
         elif member == ctx.bot.user:
-            embed = Embed(description="You can't kick me. I am the one who **knocks!**" , color=0xb30101)
+            embed = Embed(color=0xb30101)
+            embed.description = (
+                'You can't kick me. I am the one who **knocks!**'
+            )
             await ctx.send(embed=embed)
         else:
-            embed = Embed(description=f"**Reason:** {reason}" ,color=0x5e7bdd)
-            embed.set_author(icon_url=member.avatar, name=f"{member.name}" + '#' + f"{member.discriminator} has been kicked.")
+            embed = Embed(color=0x5e7bdd)
+            embed.description = (
+                f'**Reason:** {reason}'
+            )
+            embed.set_author(icon_url=member.avatar, name=f'{member.name}' + '#' + f'{member.discriminator} has been kicked.')
 
             await member.kick(reason=reason)
             await ctx.send(embed=embed)
@@ -41,17 +50,26 @@ class Moderation(Cog):
     async def ban(self, ctx, member: discord.Member, *, reason=None):
 
         if reason == None:
-            reason = "Wasn't mentioned."
+            reason = 'Wasn't mentioned.'
 
         if member == ctx.author:
-            embed = Embed(description="I can't ban you.", color=0xb30101)
+            embed = Embed(color=0xb30101)
+            embed.description = (
+                'I can't ban you.'
+            )
             await ctx.send(embed=embed)
         elif member == ctx.bot.user:
-            embed = Embed(description="You can't ban me. I am the one who **knocks!**" , color=0xb30101)
+            embed = Embed(color=0xb30101)
+            embed.description = (
+                'You can't ban me. I am the one who **knocks!**'
+            )
             await ctx.send(embed=embed)
         else:
-            embed = Embed(description=f"**Reason:** {reason}" ,color=0x5e7bdd)
-            embed.set_author(icon_url=member.avatar, name=f"{member.name}" + '#' + f"{member.discriminator} has been banned.")
+            embed = Embed(color=0x5e7bdd)
+            embed.description = (
+                f'**Reason:** {reason}'
+            )
+            embed.set_author(icon_url=member.avatar, name=f'{member.name}' + '#' + f'{member.discriminator} has been banned.')
 
             await member.ban(reason=reason)
             await ctx.send(embed=embed)
