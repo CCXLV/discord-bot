@@ -114,6 +114,35 @@ class Information(commands.Cog):
             embed.color = role_color
 
         await ctx.send(embed=embed)
+
+    @commands.command()
+    async def role(self, ctx, role: discord.Role):
+        permissions = [] 
+
+        for name in role.permissions:
+            permissions.append(name)
+
+        result = []
+
+        for name in permissions:
+            perm_name = name[0]
+            value = name[1]
+            final_name = perm_name.replace('_', ' ').replace('guild', 'server')
+
+            full = (f"{final_name}: `{str(value)}`")
+
+            cap = full.capitalize()   
+            result.append(cap)
+
+
+        embed = Embed(color=0x1983ca)
+        embed.description = (
+            f'**Role: ** {role.mention}\n'
+            f'**Role ID: ** `{role.id}`'
+        )
+        embed.add_field(name='Permissions', value='\n'.join(result))
+        
+        await ctx.send(embed=embed)
  
             
     @commands.command(aliases=['perms'])
