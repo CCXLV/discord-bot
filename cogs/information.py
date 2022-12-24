@@ -114,6 +114,39 @@ class Information(commands.Cog):
             embed.color = role_color
 
         await ctx.send(embed=embed)
+ 
+            
+    @commands.command(aliases=['perms'])
+    async def permissions(self, ctx, member: Optional[discord.Member], channel: Optional[Union[discord.TextChannel, discord.ForumChannel]]):
+        if not member:
+            member = ctx.author
+        
+        if not channel:
+            channel = ctx.channel
+
+        permissions = channel.permissions_for(member)
+
+        allowed = []
+        denied = []
+
+        for name, value in permissions: # This code is licensed MPL v2 from Rapptz/RoboDanny | https://github.com/Rapptz/RoboDanny
+            name = name.replace('_', ' ').replace('guild', 'server')
+            if value:
+                cap_name = name.capitalize()
+                allowed.append(cap_name)
+            else:
+                cap_name = name.capitalize()
+                denied.append(cap_name)
+            
+
+
+        embed = Embed(color=0x1983ca)
+        embed.add_field(name='Allowed', value='\n'.join(allowed))
+        embed.add_field(name='Denied', value='\n'.join(denied))
+
+        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar.url)
+
+        await ctx.send(embed=embed)
         
 
 
