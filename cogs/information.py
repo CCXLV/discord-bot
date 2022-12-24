@@ -36,7 +36,7 @@ class Information(commands.Cog):
         if len(member.roles) == 1:
             embed.add_field(name='Roles', value='None' , inline=False)
         else:
-            embed.add_field(name=f'Roles [{len(roles)}]', value=f'{" ".join(roles)}' , inline=False)
+            embed.add_field(name=f'Roles - {len(roles)}', value=f'{" ".join(roles)}' , inline=False)
 
         embed.set_thumbnail(url=member.avatar.url)
         if role_color == discord.Color(0x000000):
@@ -94,11 +94,11 @@ class Information(commands.Cog):
         )
         embed.add_field(name='Server ID', value=ctx.guild.id, inline=False)
         embed.add_field(name='Server Owner', value=ctx.guild.owner, inline=False)
-        embed.add_field(name=f'Roles [{len(ctx.guild.roles)}]', value=' '.join(roles), inline=False)
-        embed.add_field(name=f'Members [{len(ctx.guild.members)}]', value=(
+        embed.add_field(name=f'Roles - {len(ctx.guild.roles)}', value=' '.join(roles), inline=False)
+        embed.add_field(name=f'Members - {len(ctx.guild.members)}', value=(
             f'Status: <:green:1039223047607029945> {len(online)}   <:gray:1039223027528892436> {len(offline)}'
         ), inline=False)
-        embed.add_field(name=f'Channels [{len(ctx.guild.channels)}]', value=(
+        embed.add_field(name=f'Channels - {len(ctx.guild.channels)}', value=(
             f'Category: {len(ctx.guild.categories)}\n'
             f'Text: {len(ctx.guild.text_channels)}\n'
             f'Voice: {len(ctx.guild.voice_channels)}\n'
