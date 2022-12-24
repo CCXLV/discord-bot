@@ -47,6 +47,8 @@ class Additional(commands.Cog):
 
         if length > 100:
             await interaction.response.send_message('Passoword length can\'t be longer than 100')
+        elif not interaction.guild:
+            await interaction.response.send_message(f'Your password is `{password}`') 
         else:
             try:
                 await interaction.user.send(f'Your password is `{password}`')
