@@ -107,7 +107,12 @@ class Moderation(Cog):
     
     @commands.command()
     @commands.has_guild_permissions(moderate_members=True)
-    async def silent(self, ctx, channel: Optional[discord.TextChannel], role: Optional[discord.Role]):
+    async def silent(
+        self, 
+        ctx, 
+        channel: Optional[discord.TextChannel], 
+        role: Optional[discord.Role]
+    ):
 
         if role == int:
             role = role.id
@@ -128,7 +133,12 @@ class Moderation(Cog):
 
     @commands.command(aliases=['resetsilent', 'uns'])
     @commands.has_guild_permissions(moderate_members=True)
-    async def unsilent(self, ctx, channel: Optional[discord.TextChannel], role: Optional[discord.Role]):
+    async def unsilent(
+        self, 
+        ctx, 
+        channel: Optional[discord.TextChannel], 
+        role: Optional[discord.Role]
+    ):
 
         if role == int:
             role = role.id
@@ -197,7 +207,12 @@ class Moderation(Cog):
     @commands.command(aliases=['chadd'])
     @commands.has_guild_permissions(moderate_members=True)
     @commands.has_guild_permissions(manage_channels=True)
-    async def channeladd(self, ctx, channel: Optional[discord.TextChannel], member: Optional[discord.Member]):
+    async def channeladd(
+        self, 
+        ctx, 
+        channel: Optional[discord.TextChannel], 
+        member: Optional[discord.Member]
+    ):
         embed = Embed(color=0x1983ca)
 
         if not channel:
@@ -221,7 +236,12 @@ class Moderation(Cog):
     @commands.command(aliases=['chre', 'channelre'])
     @commands.has_guild_permissions(moderate_members=True)
     @commands.has_guild_permissions(manage_channels=True)
-    async def channelremove(self, ctx, channel: Optional[discord.TextChannel], member: Optional[discord.Member]):
+    async def channelremove(
+        self, 
+        ctx, 
+        channel: Optional[discord.TextChannel], 
+        member: Optional[discord.Member]
+    ):
         embed = Embed(color=0x1983ca)
 
         if not channel:
