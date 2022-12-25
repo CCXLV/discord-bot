@@ -14,6 +14,7 @@ class Information(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=['whois', 'ui', 'user'])
+    @commands.guild_only()
     async def userinfo(self, ctx, member: Optional[discord.Member]):
         guild_ = self.bot.get_guild(ctx.guild.id)
         role_color = guild_.self_role.color
@@ -47,6 +48,7 @@ class Information(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command(aliases=['av'])
+    @commands.guild_only()
     async def avatar(self, ctx, member: Optional[discord.Member]):
         guild_ = self.bot.get_guild(ctx.guild.id)
         role_color = guild_.self_role.color
@@ -116,6 +118,7 @@ class Information(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
+    @commands.guild_only()
     async def role(self, ctx, role: discord.Role):
         permissions = [] 
 
@@ -146,6 +149,7 @@ class Information(commands.Cog):
  
             
     @commands.command(aliases=['perms'])
+    @commands.guild_only()
     async def permissions(self, ctx, member: Optional[discord.Member], channel: Optional[Union[discord.TextChannel, discord.ForumChannel]]):
         if not member:
             member = ctx.author
