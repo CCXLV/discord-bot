@@ -39,7 +39,7 @@ class Moderation(Cog):
             embed.description = (
                 f'**Reason:** {reason}'
             )
-            embed.set_author(icon_url=member.avatar, name=f'{member.name}' + '#' + f'{member.discriminator} has been kicked.')
+            embed.set_author(icon_url=member.avatar, name=f'{member.name}' + '#' + f'{member.discriminator} was kicked.')
 
             await ctx.guild.kick(member, reason=reason)
             await ctx.send(embed=embed)
@@ -69,7 +69,7 @@ class Moderation(Cog):
             embed.description = (
                 f'**Reason:** {reason}'
             )
-            embed.set_author(icon_url=member.avatar, name=f'{member.name}' + '#' + f'{member.discriminator} has been banned.')
+            embed.set_author(icon_url=member.avatar, name=f'{member.name}' + '#' + f'{member.discriminator} was banned.')
 
             await ctx.guild.ban(member, reason=reason)
             await ctx.send(embed=embed)
@@ -80,7 +80,7 @@ class Moderation(Cog):
     async def unban(self, ctx, member: discord.Member):
 
         #embed = Embed(description='Hello', color=0x5e7bdd)
-        #embed.set_author(icon_url=member.avatar, name=f"{member.name}" + '#' + f"{member.discriminator} has been unbanned.")
+        #embed.set_author(icon_url=member.avatar, name=f"{member.name}" + '#' + f"{member.discriminator} was unbanned.")
 
         #await ctx.send(embed=embed)
         await ctx.guild.unban(member)
@@ -125,9 +125,9 @@ class Moderation(Cog):
         await channel.set_permissions(role, send_messages=False, read_messages=True)
 
         if role == ctx.guild.default_role:
-            await ctx.send(f"This channel has been silented for **everyone**")
+            await ctx.send(f"This channel was silented for **everyone**")
         else:
-            await ctx.send(f"This channel has been silented for **{role.name}**")
+            await ctx.send(f"This channel was silented for **{role.name}**")
 
     @commands.command(aliases=['resetsilent', 'uns'])
     @commands.has_guild_permissions(moderate_members=True)
@@ -149,10 +149,10 @@ class Moderation(Cog):
 
         if role == ctx.guild.default_role:
             await channel.set_permissions(role, send_messages=True)
-            await ctx.send(f"This channel has been unsilented for **everyone**")
+            await ctx.send(f"This channel was unsilented for **everyone**")
         else:
             await channel.set_permissions(role, send_messages=True)
-            await ctx.send(f"This channel has been unsilented for **{role.name}**")
+            await ctx.send(f"This channel was unsilented for **{role.name}**")
 
     @commands.command()
     @commands.has_guild_permissions(manage_messages=True)
@@ -273,7 +273,7 @@ class Moderation(Cog):
         )
 
         embed.description = (
-            f'Channel {channel.mention} has been locked.'
+            f'Channel {channel.mention} was locked.'
         )
 
         await ctx.send(embed=embed)
@@ -291,7 +291,7 @@ class Moderation(Cog):
         )
 
         embed.description = (
-            f'Channel {channel.mention} has been unlocked.'
+            f'Channel {channel.mention} was unlocked.'
         )
 
         await ctx.send(embed=embed)
