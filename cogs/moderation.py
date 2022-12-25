@@ -296,7 +296,7 @@ class Moderation(Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.command()
+    @commands.command(hidden=True)
     @commands.is_owner()
     async def sync(self, ctx):
         tree = await self.bot.tree.sync()
