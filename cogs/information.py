@@ -120,6 +120,9 @@ class Information(commands.Cog):
     @commands.command()
     @commands.guild_only()
     async def role(self, ctx, role: discord.Role):
+        if role == int:
+            role = role.id
+            
         permissions = [] 
 
         for name in role.permissions:
