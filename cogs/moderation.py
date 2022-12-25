@@ -41,7 +41,7 @@ class Moderation(Cog):
             )
             embed.set_author(icon_url=member.avatar, name=f'{member.name}' + '#' + f'{member.discriminator} has been kicked.')
 
-            await member.kick(reason=reason)
+            await ctx.guild.kick(member, reason=reason)
             await ctx.send(embed=embed)
 
     @commands.command()
@@ -71,21 +71,19 @@ class Moderation(Cog):
             )
             embed.set_author(icon_url=member.avatar, name=f'{member.name}' + '#' + f'{member.discriminator} has been banned.')
 
-            await member.ban(reason=reason)
+            await ctx.guild.ban(member, reason=reason)
             await ctx.send(embed=embed)
 
     @commands.command()
     @commands.guild_only()
     @commands.has_guild_permissions(ban_members=True)
     async def unban(self, ctx, member: discord.Member):
-        
-        guild: discord.Guild = ctx.guild
 
         #embed = Embed(description='Hello', color=0x5e7bdd)
         #embed.set_author(icon_url=member.avatar, name=f"{member.name}" + '#' + f"{member.discriminator} has been unbanned.")
 
         #await ctx.send(embed=embed)
-        await guild.unban(member)
+        await ctx.guild.unban(member)
         
     @commands.command(aliases=['delay', 'setdelay'])
     @commands.has_guild_permissions(manage_channels=True)
