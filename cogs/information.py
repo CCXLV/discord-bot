@@ -177,7 +177,7 @@ class Information(commands.Cog):
         embed.add_field(name='Allowed', value='\n'.join(allowed))
         embed.add_field(name='Denied', value='\n'.join(denied))
 
-        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar.url)
+        embed.set_author(name=member, icon_url=member.avatar.url)
 
         await ctx.send(embed=embed)
         
