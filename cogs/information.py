@@ -1,7 +1,6 @@
 import discord
 
 from discord.ext import commands
-from discord import Embed
 from discord.utils import format_dt
 from datetime import datetime
 
@@ -29,7 +28,7 @@ class Information(commands.Cog):
         roles.reverse()
         roles.pop()
         
-        embed = Embed()
+        embed = discord.Embed()
         embed.add_field(name='User', value=member.mention, inline=False)
         embed.add_field(name='User ID', value=member.id, inline=False)
         embed.add_field(name='Created', value=format_dt(member.created_at, style="R"), inline=False)
@@ -55,7 +54,7 @@ class Information(commands.Cog):
         if not member:
             member = ctx.author
 
-        embed = Embed(title=member.name + '#' + member.discriminator + ' Avatar')
+        embed = discord.Embed(title=member.name + '#' + member.discriminator + ' Avatar')
         embed.set_image(url=member.avatar.url)
         if role_color == discord.Color(0x000000):
             embed.color = 0x1983ca
@@ -87,7 +86,7 @@ class Information(commands.Cog):
         roles.reverse()
         roles.pop()
         
-        embed = Embed()
+        embed = discord.Embed()
         if ctx.message.guild.icon is not None:
             embed.set_thumbnail(url=ctx.message.guild.icon.url)
         embed.title = ctx.guild.name
@@ -141,7 +140,7 @@ class Information(commands.Cog):
             result.append(cap)
 
 
-        embed = Embed(color=0x1983ca)
+        embed = discord.Embed(color=0x1983ca)
         embed.description = (
             f'**Role: ** {role.mention}\n'
             f'**Role ID: ** `{role.id}`'
@@ -176,7 +175,7 @@ class Information(commands.Cog):
             
 
 
-        embed = Embed(color=0x1983ca)
+        embed = discord.Embed(color=0x1983ca)
         embed.add_field(name='Allowed', value='\n'.join(allowed))
         embed.add_field(name='Denied', value='\n'.join(denied))
 
