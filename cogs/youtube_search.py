@@ -2,7 +2,6 @@ import discord
 import os
 
 from discord.ext import commands
-from discord import Embed
 
 from googleapiclient.discovery import build
 
@@ -55,7 +54,7 @@ class YoutubeSearch(commands.Cog):
         for i in response['items']:
             raw = i['statistics']
 
-        embed = Embed(title=f'{username}', color=0xFF0000)
+        embed = discord.Embed(title=f'{username}', color=0xFF0000)
         
         embed.description = str(channel_description)
         embed.add_field(name='Custom url', value=f"{snippet['customUrl']}", inline=False)
