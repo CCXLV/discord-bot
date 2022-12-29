@@ -3,7 +3,6 @@ import string
 
 import discord
 from discord.ext import commands
-from discord import Embed
 from discord import app_commands
 
 from utils.http import session
@@ -17,7 +16,7 @@ class Additional(commands.Cog):
     
     @commands.command()
     async def about(self, ctx):
-        embed = Embed(color=0x1983ca)
+        embed = discord.Embed(color=0x1983ca)
 
         embed.add_field(name='About', value=(f'Currently in **{len(self.bot.guilds)}** servers.\n'
                                              f'With a total of **{len(self.bot.users)}** users.'))
@@ -32,7 +31,7 @@ class Additional(commands.Cog):
         quote = data["content"]
         author = data["author"]
 
-        embed = Embed(description=f'**{author}**\n{quote}')
+        embed = discord.Embed(description=f'**{author}**\n{quote}')
         embed.color = random.choice(QUOTE_COLORS)
         await ctx.send(embed=embed)
 
