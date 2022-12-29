@@ -3,7 +3,6 @@ import typing
 import discord
 from discord.ext import commands
 from discord.ext.commands import Cog
-from discord import Embed
 
 from utils.bot import Brains
 
@@ -23,19 +22,19 @@ class Moderation(Cog):
             reason = 'Wasn\'t mentioned'
 
         if member == ctx.author:
-            embed = Embed(color=0xb30101)
+            embed = discord.Embed(color=0xb30101)
             embed.description = (
                 'I can\'t kick you.'     
             )
             await ctx.send(embed=embed)
         elif member == ctx.bot.user:
-            embed = Embed(color=0xb30101)
+            embed = discord.Embed(color=0xb30101)
             embed.description = (
                 'You can\'t kick me. I am the one who **knocks!**'
             )
             await ctx.send(embed=embed)
         else:
-            embed = Embed(color=0x5e7bdd)
+            embed = discord.Embed(color=0x5e7bdd)
             embed.description = (
                 f'**Reason:** {reason}'
             )
@@ -53,19 +52,19 @@ class Moderation(Cog):
             reason = 'Wasn\'t mentioned.'
 
         if member == ctx.author:
-            embed = Embed(color=0xb30101)
+            embed = discord.Embed(color=0xb30101)
             embed.description = (
                 'I can\'t ban you.'
             )
             await ctx.send(embed=embed)
         elif member == ctx.bot.user:
-            embed = Embed(color=0xb30101)
+            embed = discord.Embed(color=0xb30101)
             embed.description = (
                 'You can\'t ban me. I am the one who **knocks!**'
             )
             await ctx.send(embed=embed)
         else:
-            embed = Embed(color=0x5e7bdd)
+            embed = discord.Embed(color=0x5e7bdd)
             embed.description = (
                 f'**Reason:** {reason}'
             )
@@ -79,7 +78,7 @@ class Moderation(Cog):
     @commands.has_guild_permissions(ban_members=True)
     async def unban(self, ctx, member: discord.Member):
 
-        #embed = Embed(description='Hello', color=0x5e7bdd)
+        #embed = discord.Embed(description='Hello', color=0x5e7bdd)
         #embed.set_author(icon_url=member.avatar, name=f"{member.name}" + '#' + f"{member.discriminator} was unbanned.")
 
         #await ctx.send(embed=embed)
@@ -170,13 +169,13 @@ class Moderation(Cog):
     async def addrole(self, ctx, member: discord.Member, *, role: discord.Role):
 
         if role in member.roles:
-            embed = Embed(color=0xb30101)
+            embed = discord.Embed(color=0xb30101)
             embed.description = (
                 f'{member.mention} already has the role {role.mention}'
             )
             await ctx.send(embed=embed)
         else:
-            embed = Embed(color=0x1983ca)
+            embed = discord.Embed(color=0x1983ca)
             embed.description = (
                 f'Added {role.mention} role to {member.mention}'
             )
@@ -188,13 +187,13 @@ class Moderation(Cog):
     async def removerole(self, ctx, member: discord.Member, *, role: discord.Role):
 
         if role not in member.roles:
-            embed = Embed(color=0xb30101)
+            embed = discord.Embed(color=0xb30101)
             embed.description = (
                 f'{member.mention} doesn\'t have the role {role.mention}'
             )
             await ctx.send(embed=embed)
         else:
-            embed = Embed(color=0x1983ca)
+            embed = discord.Embed(color=0x1983ca)
             embed.description = (
                 f'Removed {role.mention} role from {member.mention}'
             )
@@ -211,7 +210,7 @@ class Moderation(Cog):
         channel: Optional[discord.TextChannel], 
         member: Optional[discord.Member]
     ):
-        embed = Embed(color=0x1983ca)
+        embed = discord.Embed(color=0x1983ca)
 
         if not channel:
             channel = ctx.channel
@@ -263,7 +262,7 @@ class Moderation(Cog):
     @commands.command()
     @commands.has_guild_permissions(manage_channels=True)
     async def lock(self, ctx, channel: Optional[discord.TextChannel]):
-        embed = Embed(color=0x1983ca)
+        embed = discord.Embed(color=0x1983ca)
 
         if not channel:
             channel = ctx.channel
@@ -281,7 +280,7 @@ class Moderation(Cog):
     @commands.command()
     @commands.has_guild_permissions(manage_channels=True)
     async def unlock(self, ctx, channel: Optional[discord.TextChannel]):
-        embed = Embed(color=0x1983ca)
+        embed = discord.Embed(color=0x1983ca)
 
         if not channel:
             channel = ctx.channel
