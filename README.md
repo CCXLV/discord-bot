@@ -10,7 +10,9 @@ Install by running `pip install -r requirement.txt`
 
 3. **Create the database in PostgreSQL**
 
-Note
+```sql
+CREATE DATABASE ccxlv OWNER ccxlv;
+```
 
 4. **Setup configuration**
 
