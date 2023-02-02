@@ -13,8 +13,11 @@ Install by running `pip install -r requirement.txt`
 ```sql
 CREATE DATABASE ccxlv OWNER ccxlv;
 ```
+4. **Configure tables in the database**
 
-4. **Setup configuration**
+Go to `tables.sql` which is located in `sql` folder and type them in the `psql` tool
+
+5. **Setup configuration**
 
 Now create a `config.py` file and fill in like the following template:
 
@@ -23,5 +26,5 @@ token = '' # your bot's token
 postgresql = 'postgresql://user:password@host/database' # your postgresql info
 ```
 
-5. Start the bot by running `launcher.py` file
+6. Start the bot by running `launcher.py` file
 
