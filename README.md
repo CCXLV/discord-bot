@@ -14,7 +14,7 @@ Note
 
 4. **Setup configuration**
 
-Now locate to `config.py` file and fill in like the following template:
+Now create a `config.py` file and fill in like the following template:
 
 ```py
 token = '' # your bot's token
