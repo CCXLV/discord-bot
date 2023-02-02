@@ -39,8 +39,6 @@ class Brains(commands.Bot):
         if message.author.bot:
             return
 
-        if message.guild is None:
-            return
         
         await self.process_commands(message)
 
