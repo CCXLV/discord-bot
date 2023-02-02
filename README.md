@@ -12,5 +12,14 @@ Install by running `pip install -r requirement.txt`
 
 Note
 
-4. Start the bot by running `launcher.py` file
+4. **Setup configuration**
+
+Now create a `config.py` file in the root directory where the `launcher.py` is with the following template:
+
+```py
+token = '' # your bot's token
+postgresql = 'postgresql://user:password@host/database' # your postgresql info
+```
+
+5. Start the bot by running `launcher.py` file
 
