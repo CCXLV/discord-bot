@@ -10,7 +10,6 @@ extensions = (
     'cogs.events',
     'cogs.additional',
     'cogs.moderation',
-    'cogs.youtube_search',
     'cogs.information',
 )
 
