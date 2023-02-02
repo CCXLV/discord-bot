@@ -13,6 +13,7 @@ extensions = (
     'cogs.additional',
     'cogs.moderation',
     'cogs.information',
+    'cogs.tags',
 )
 
 class Brains(commands.Bot):
