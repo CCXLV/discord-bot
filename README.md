@@ -14,7 +14,7 @@ Note
 
 4. **Setup configuration**
 
-Now locate to `config.py` file in the root directory where the `launcher.py` and fill in like the following template:
+Now locate to `config.py` file and fill in like the following template:
 
 ```py
 token = '' # your bot's token
