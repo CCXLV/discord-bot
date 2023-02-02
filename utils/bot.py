@@ -14,6 +14,7 @@ extensions = (
     'cogs.moderation',
     'cogs.information',
     'cogs.tags',
+    'cogs.welcoming',
 )
 
 class Brains(commands.Bot):
