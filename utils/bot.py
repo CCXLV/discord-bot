@@ -1,7 +1,9 @@
 import discord
 from discord.ext import commands
 import logging
+
 import aiohttp
+import asyncpg
 
 log = logging.getLogger(__name__)
 
@@ -14,6 +16,7 @@ extensions = (
 )
 
 class Brains(commands.Bot):
+    pool: asyncpg.Pool
     session = aiohttp.ClientSession()
     def __init__(self):
         intents = discord.Intents.all()
@@ -37,7 +40,7 @@ class Brains(commands.Bot):
             return
 
         if message.guild is None:
-            return await message.author.send("Bot can't be used in DMs(for now).")
+            return
         
         await self.process_commands(message)
 
