@@ -44,7 +44,7 @@ class ModLog(commands.Cog):
         
 
 
-        modlog_channel = self.bot.get_channel() # need an update
+        modlog_channel = self.bot.get_channel() # needs an update
         log_message = await modlog_channel.send(
             content=content,
             embed=embed
