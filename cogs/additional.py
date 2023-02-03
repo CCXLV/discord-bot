@@ -35,27 +35,7 @@ class Additional(commands.Cog):
         embed.color = random.choice(QUOTE_COLORS)
         await ctx.send(embed=embed)
 
-    @app_commands.command(name='password', description='Generates random strong password')
-    @app_commands.describe(
-        length='The length of the password(less than 100)'
-        )
-    async def _password(self, interaction: discord.Interaction, length: int):
-        password = ''.join(random.choices(string.ascii_lowercase + string.ascii_uppercase + string.digits,
-                k=length
-            ))
-
-        if length > 100:
-            await interaction.response.send_message('Passoword length can\'t be longer than 100')
-        elif not interaction.guild:
-            await interaction.response.send_message(f'Your password is `{password}`') 
-        else:
-            try:
-                await interaction.user.send(f'Your password is `{password}`')
-                await interaction.response.send_message('Your password was sent in DMs')
-            except:
-                await interaction.response.send_message(f'Your password is `{password}`', ephemeral=True)
-        
-    
+   
 
 
 async def setup(bot: Brains):
