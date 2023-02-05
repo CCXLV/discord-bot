@@ -29,4 +29,4 @@ postgresql = 'postgresql://user:password@host/database' # your postgresql info
 6. Start the bot by running `launcher.py` file
 
 
-# For questions dm me on discord `CCXLV#2179`
+For questions dm me on discord `CCXLV#2179`
