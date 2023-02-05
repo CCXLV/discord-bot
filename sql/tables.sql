@@ -6,11 +6,6 @@ CREATE TABLE IF NOT EXISTS tags (
   content TEXT
 );
 
-CREATE TABLE IF NOT EXISTS modlog (
-  guild_id BIGINT PRIMARY KEY,
-  channel_id BIGINT
-);
-
 CREATE TABLE IF NOT EXISTS welcoming (
   guild_id BIGINT PRIMARY KEY,
   channel_id BIGINT
