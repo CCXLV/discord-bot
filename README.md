@@ -15,7 +15,7 @@ CREATE DATABASE ccxlv OWNER ccxlv;
 ```
 4. **Configure tables in the database**
 
-Go to `tables.sql` which is located in `sql` folder and type them in the `psql` tool
+Go to `tables.sql` which is located in `sql` folder and run them in the `psql` tool
 
 5. **Setup configuration**
 
